@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>AdminLTE 2 | General Form Elements</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.5 -->
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+		<!-- AdminLTE Skins. Choose a skin from the css/skins
+			 folder instead of downloading all of them to reduce the load. -->
+		<link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+		
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+		<body class="hold-transition skin-blue sidebar-mini">
+			<div class="wrapper">
+				<header class="main-header" id="main-headerX">				
+					<!--jQuery 載入mainHeader.html -->					
+				</header>
+				
+				<!-- Left side column. contains the logo and sidebar -->
+				<aside class="main-sidebar" id="main-sidebarX">							
+					<!--jQuery 載入leftcolumn.html -->
+				</aside>
+
+				<!-- Content Wrapper. Contains page content -->
+				<div class="content-wrapper">
+					<!-- Content Header (Page header) -->
+					<section class="content-header">
+						<h1>
+							<b>詩歌管理</b>
+							<small>Song Management</small>
+						</h1>
+						<ol class="breadcrumb">
+							<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+							<li><a href="#">Forms</a></li>
+							<li class="active">General Elements</li>
+						</ol>
+					</section>
+
+					<!-- Main content -->
+					<section class="content">
+						<!--詩歌新增-->
+						<div class="row">
+							<!-- center column -->
+							<div class="col-md-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+										<h3 class="box-title">詩歌新增</h3>
+									</div>
+									<div class="box-body">										
+										
+
+
+									</div>
+								</div>
+							</div>							
+						</div>
+						<!--End詩歌新增-->
+
+
+
+
+						<!--詩歌查詢 -->
+						<div class="row">
+							<!-- center column -->
+							<div class="col-md-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+										<h3 class="box-title">詩歌查詢</h3>
+									</div>
+									<div class="box-body">
+										<!--詩歌查詢-->
+										<form action="#" method="get" class="sidebar-form">
+											<div class="input-group">
+												<input type="text" name="q" class="form-control" placeholder="詩歌搜尋...">
+												<span class="input-group-btn">
+													<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+												</span>
+											</div>
+										</form>
+										<!--End詩歌查詢-->
+										<div class="col-md-12">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="headingOne">
+														<h4 class="panel-title">
+															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+																168 &nbsp; &nbsp;|&nbsp; &nbsp; 全新的你 &nbsp; &nbsp;|&nbsp; &nbsp; New You
+															</a>
+														</h4>
+													</div>
+													<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+														<div class="panel-body">
+															<form class="form-horizontal">
+																<div class="box-body">
+																	<div class="row">
+																		<div class="col-md-6">																
+																			<div class="form-group">
+																				<label for="inputName" class="col-sm-2 control-label">日期</label>
+																				<div class="col-sm-10">
+																					<div class="input-group">
+																						<div class="input-group-addon">
+																							<i class="fa fa-calendar"></i>
+																						</div>
+																						<input class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" type="text">
+																					</div><!-- /.input group -->
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label for="inputEmail" class="col-xs-3 control-label">奉獻金額</label>
+																				<div class="col-xs-9">
+																					<div class="input-group">
+																						<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+																						<input type="text" class="form-control" id="inputEmail" placeholder="奉獻金額">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label for="inputAddress" class="col-xs-3 control-label">奉獻對象</label>
+																				<div class="col-xs-9">
+																					<div class="input-group">
+																						<span class="input-group-addon"><i class="fa fa-home"></i></span>
+																						<input type="text" class="form-control" id="inputAddress" placeholder="奉獻對象">
+																					</div>
+																				</div>
+																			</div>																
+																		</div>
+																		<div class="col-md-6">
+																			<div class="form-group">
+																				<label for="inputDevoteID" class="col-xs-3 control-label">奉獻類別</label>
+																				<div class="col-xs-9">
+																					<select class="form-control">																			
+																						<option>主日奉獻</option>
+																						<option>十一奉獻</option>
+																						<option>愛心奉獻</option>
+																						<option>青少年團契奉獻</option>
+																					</select>
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label for="inputDevoteID" class="col-xs-3 control-label">備註</label>
+																				<div class="col-xs-9">
+																					<textarea class="form-control" rows="3" placeholder=""></textarea>
+																				</div>
+																			</div>
+																		</div>															
+																	</div>
+																</div>
+																<!-- /.box-body -->
+																<div class="box-footer">
+																	<button type="reset" class="btn btn-default">清空</button>
+																	<button type="submit" class="btn btn-info pull-right">新增</button>
+																</div>
+																<!-- /.box-footer -->
+															</form>
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="headingTwo" style="padding:0px;">
+														<h4 class="panel-title">
+															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+																<table class="table table-bordered" style="margin-bottom:0px;">
+																	<tbody>
+													                    <tr>
+													                        <td style="width:40px">170</td>
+													                        <td style="width:60px">求主充滿我</td>												                       
+													                        <td style="width:60px">Come and Fill Me Up</td>
+													                    </tr>
+													                </tbody>
+												                </table>
+															</a>
+														</h4>
+													</div>
+													<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+														<div class="panel-body">														  
+															<!-- 一開始，在行動設備上 column 會是 50% 寬度，提升至桌面大小後，寬度會平均為 33.3% -->
+															<div class="row">
+																<div class="col-xs-6 col-md-4"><b>歌詞：</b><br>主 我來尋求祢的面 求祢充滿我 來充滿我 主 我渴慕祢的同在 求祢潔淨我 來充滿我 耶穌 耶穌 耶穌 耶穌 祢的寶血洗淨我 耶穌 耶穌 耶穌 耶穌 祢以恩典我我冠冕</div>
+																<div class="col-xs-6 col-md-4">
+																	<b>專輯：</b>讚美之泉 -深觸我心<br />
+																	<b>調性：</b>D<br />
+																	<b>曲風：</b>
+																	<span class="label label-success">溫柔地</span>
+																	<span class="label label-success">安靜地</span><br /><br />
+																	<button type="button" class="btn btn-info">樂譜一</button>
+																	<button type="button" class="btn btn-info">樂譜二</button>
+																	<button type="button" class="btn btn-info">樂譜三</button><br />
+																	
+																</div>
+																<div class="col-xs-6 col-md-4">	
+																	<b>備註：</b><br />
+																	吉他教學
+																	貝斯教學
+
+																</div>
+															</div>															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>							
+						</div>
+
+
+						<!--END詩歌查詢-->
+
+
+
+					</section>
+				</div> <!--/.content wrapper-->
+				
+				<footer class="main-footer" id="main-footerX">					
+					<!--jQuery 載入mainFooter.html -->						
+				</footer>
+
+				<!-- Control Sidebar -->
+				<aside class="control-sidebar control-sidebar-dark" id="rightcolumnControl">					
+					<!--jQuery 載入rightcolumnControl.html -->					
+				</aside>
+				<!-- /.control-sidebar -->
+				
+				<div class="control-sidebar-bg"></div>
+			</div>
+			<!-- ./wrapper -->
+
+			<!-- jQuery 2.1.4 -->
+			<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+			<!-- Bootstrap 3.3.5 -->
+			<script src="../../bootstrap/js/bootstrap.min.js"></script>
+			<!-- FastClick -->
+			<script src="../../plugins/fastclick/fastclick.min.js"></script>
+			<!-- AdminLTE App -->
+			<script src="../../dist/js/app.min.js"></script>
+			<!-- AdminLTE for demo purposes -->
+			<script src="../../dist/js/demo.js"></script>
+			<!-- InputMask -->
+			<script src="../../plugins/input-mask/jquery.inputmask.js"></script>
+			<script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+			<script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+			
+			<script>
+				$("#main-headerX").load("mainHeader.html", function () {
+					console.log("Load mainHeader.html OK.");
+				});<!--載入上方header-->
+				$("#main-sidebarX").load("leftcolumn.html", function () {
+					console.log("Load leftcolumn.html OK.");
+				}); <!--載入左邊主選單-->				
+				$("#rightcolumnControl").load("rightcolumnControl.html", function () {
+					console.log("Load rightcolumnControl.html OK.");
+				});<!--載入右邊tab-->
+				$("#main-footerX").load("mainFooter.html", function () {
+					console.log("Load mainFooter.html OK.");
+				});<!--載入右邊tab-->
+				
+			  $(function () {
+				//Datemask dd/mm/yyyy
+				$("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+				//Datemask2 mm/dd/yyyy
+				$("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+				//Money Euro
+				$("[data-mask]").inputmask();
+			  });
+			</script>
+		</body>
+  
+
+</html>
