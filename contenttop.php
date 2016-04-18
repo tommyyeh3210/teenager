@@ -216,7 +216,7 @@
               <ul class="treeview-menu">
                 <li><a href="songSearch.php">詩歌查詢</a></li>
                 <li><a href="newSong.php">詩歌新增</a></li>
-                <li><a href="songList.php">詩歌清單</a></li>
+                <li><a href="practiceSongList.php">詩歌清單</a></li>
               </ul>
             </li>
             <li><a href="#"><i class="fa icon-car"></i> <span>小組回報單</span></a></li>
