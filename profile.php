@@ -72,6 +72,9 @@
                       <b>生日</b> <a class="pull-right"><?php echo $_SESSION["birthday"]; ?></a>
                     </li>
                     <li class="list-group-item">
+                      <b>電話</b> <a class="pull-right"><?php echo $_SESSION["phone"]; ?></a>
+                    </li>
+                    <li class="list-group-item">
                       <b>手機</b> <a class="pull-right"><?php echo $_SESSION["mobile"]; ?></a>
                     </li>
                     <li class="list-group-item">
@@ -132,47 +135,47 @@
 	                      <div class="form-group">
 	                        <label for="inputName" class="col-sm-2 control-label">姓名<span style="color:red; font-size: 12px;">(*)</span></label>
 	                        <div class="col-sm-10">
-	                          <input type="text" class="form-control" id="inputName" name="inputName" placeholder="請輸入您的大名" maxlength="30" required>
+	                          <input type="text" class="form-control" id="inputName" name="inputName" placeholder="請輸入您的大名" value="<?php echo $_SESSION["name"]; ?>" maxlength="30" required>
 	                        </div>
 	                      </div>
 	                      <div class="form-group">
 	                        <label for="inputSex" class="col-sm-2 control-label">性別<span style="color:red; font-size: 12px;">(*)</span></label>
 	                        <div class="col-sm-10">
 	                          <select class="form-control" id="inputSex" name="inputSex" required>
-                              <option value="">請選擇</option>
-                              <option value="男">男</option>
-                              <option value="女">女</option>                              
+	                              <option value="">請選擇</option>
+	                              <option value="男" <?php if($_SESSION["sex"] == "男"){ echo " selected";} ?>>男</option>
+	                              <option value="女" <?php if($_SESSION["sex"] == "女"){ echo " selected";} ?>>女</option>                              
                             </select> 
 	                        </div>
 	                      </div>
 	                      <div class="form-group">
 	                        <label for="inputBirthday" class="col-sm-2 control-label">生日</label>
 	                        <div class="col-sm-10">
-	                          <input type="date" class="form-control" id="inputBirthday" name="inputBirthday" placeholder="生日">
+	                          <input type="date" class="form-control" id="inputBirthday" name="inputBirthday" value="<?php echo $_SESSION["birthday"]; ?>" placeholder="生日">
 	                        </div>
 	                      </div>
 	                      <div class="form-group">
 	                        <label for="inputAddress" class="col-sm-2 control-label">住址</label>
 	                        <div class="col-sm-10">
-	                          <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="請輸入住址" maxlength="100">
+	                          <input type="text" class="form-control" id="inputAddress" name="inputAddress" value="<?php echo $_SESSION["address"]; ?>" placeholder="請輸入住址" maxlength="100">
 	                        </div>
 	                      </div>
                         <div class="form-group">
                           <label for="inputPhone" class="col-sm-2 control-label">電話</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPhone" name="inputPhone" placeholder="請輸入電話。格式:02-27901497" maxlength="15" pattern="0[1-9]\-[0-9]*">
+                            <input type="text" class="form-control" id="inputPhone" name="inputPhone" value="<?php echo $_SESSION["phone"];?>" placeholder="請輸入電話。格式:02-27901497" maxlength="15" pattern="0[1-9]\-[0-9]*">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="inputMobile" class="col-sm-2 control-label">手機</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputMobile" name="inputMobile" placeholder="請輸入手機。格式:0912334507" maxlength="10" pattern="09[1-8][0-9]{7}">
+                            <input type="text" class="form-control" id="inputMobile" name="inputMobile" value="<?php echo $_SESSION["mobile"]; ?>" placeholder="請輸入手機。格式:0912334507" maxlength="10" pattern="09[1-8][0-9]{7}">
                           </div>
                         </div>
 	                      <div class="form-group">
 	                        <label for="inputSkill" class="col-sm-2 control-label">專長</label>
 	                        <div class="col-sm-10">
-	                          <input type="text" class="form-control" id="inputSkill" name="inputSkill" placeholder="請輸入專長(以半形逗號分隔 ex. 讀經,禱告)" maxlength="50">
+	                          <input type="text" class="form-control" id="inputSkill" name="inputSkill" value="<?php echo $_SESSION["skill"];?>" placeholder="請輸入專長(以半形逗號分隔 ex. 讀經,禱告)" maxlength="50">
 	                        </div>
 	                      </div>
 	                      <div class="form-group">
@@ -180,20 +183,20 @@
 	                        <div class="col-sm-10">
                             <select class="form-control" id="inputEdu" name="inputEdu" required>
                               <option value="">請選擇</option>
-                              <option value="小學">小學</option>
-                              <option value="國中">國中</option>
-                              <option value="高中/高職">高中/高職</option>
-                              <option value="五專">五專</option>
-                              <option value="大學">大學</option>
-                              <option value="碩士">碩士</option>
-                              <option value="博士">博士</option>
+                              <option value="小學" <?php if($_SESSION["education"] == "小學"){ echo " selected";} ?>>小學</option>
+                              <option value="國中" <?php if($_SESSION["education"] == "國中"){echo " selected";}?>>國中</option>
+                              <option value="高中/高職" <?php if($_SESSION["education"] == "高中/高職"){echo " selected";}?>>高中/高職</option>
+                              <option value="五專" <?php if($_SESSION["education"] == "五專"){echo " selected";}?>>五專</option>
+                              <option value="大學" <?php if($_SESSION["education"] == "大學"){echo " selected";}?>>大學</option>
+                              <option value="碩士" <?php if($_SESSION["education"] == "碩士"){echo " selected";}?>>碩士</option>
+                              <option value="博士" <?php if($_SESSION["education"] == "博士"){echo " selected";}?>>博士</option>
                             </select>	                          
 	                        </div>
 	                      </div>
 	                      <div class="form-group">
 	                        <label for="inputBible" class="col-sm-2 control-label">最愛經文</label>
 	                        <div class="col-sm-10">
-	                          <textarea class="form-control" id="inputBible" name="inputBible" placeholder="請輸入最愛經文" maxlength="150"></textarea>
+	                          <textarea class="form-control" id="inputBible" name="inputBible" placeholder="請輸入最愛經文" maxlength="150"><?php echo $_SESSION["verse"]; ?></textarea>
 	                        </div>
 	                      </div>                      
 	                      <div class="form-group">

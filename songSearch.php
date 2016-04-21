@@ -99,7 +99,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<!--End詩歌查詢-->
 							<div class="col-md-12"><!--詩歌列表開始 -->
 								<div class="panel-group" role="tablist" aria-multiselectable="true" id="allSongList">
-									
+									<!--
 									<div class="panel panel-default">
 										<div class="panel-heading" role="tab" id="headingX" style="padding:0px;">
 											<h4 class="panel-title">
@@ -116,9 +116,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 											</h4>
 										</div>
 										<div id="collapseX" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingX">
-											<div class="panel-body">														  
+											<div class="panel-body">	-->													  
 												<!-- 一開始，在行動設備上 column 會是 50% 寬度，提升至桌面大小後，寬度會平均為 33.3% -->
-												<div class="row">
+												<!--<div class="row">
 													<div class="col-md-4"><b>歌詞：</b><br>主 我來尋求祢的面 求祢充滿我 來充滿我 主 我渴慕祢的同在 求祢潔淨我 來充滿我 耶穌 耶穌 耶穌 耶穌 祢的寶血洗淨我 耶穌 耶穌 耶穌 耶穌 祢以恩典我我冠冕</div>
 													<div class="col-md-4" style="line-height: 22px;">
 														<b>專輯：</b><span class="label label-success">讚美之泉 -深觸我心</span><br />
@@ -135,7 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 											</div>
 										</div>
 									</div>
-
+									-->
 
 
 

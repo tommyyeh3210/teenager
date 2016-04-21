@@ -53,6 +53,9 @@ function refreshSongList () {
 											}			
 				str	+=					"</div>"
 					+					"<div class='col-md-4'>"
+					+						"<b>歌曲編號：</b>" + songItem[i].song_id
+					+					"</div>"
+					+					"<div class='col-md-4'>"
 					+						"<b>備註：</b><br />" + songItem[i].note
 					+					"</div>"
 					+				"</div>"
@@ -125,6 +128,9 @@ function call(){
 											}
 											//str += songItem[i].sheet[0] + "..." + songItem[i].sheet[1]
 					str	+=					"</div>"
+						+					"<div class='col-md-4'>"
+						+						"<b>歌曲編號：</b>" + songItem[i].song_id
+						+					"</div>"
 						+					"<div class='col-md-4'>"
 						+						"<b>備註：</b><br />" + songItem[i].note
 						+					"</div>"

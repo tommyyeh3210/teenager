@@ -33,7 +33,7 @@ try{
 			$ResponMessage = "無選取任何檔案";
 			break;
 		}
-		$target_file = $target_dir . $timeStamp . iconv("utf-8","Big5",$_FILES["fileToUpload"]["name"][$i]);
+		$target_file = $target_dir . $timeStamp . iconv("utf-8","Big5",$_FILES["modifyfileToUpload"]["name"][$i]);
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 		// Check if image file is a actual image or fake image
