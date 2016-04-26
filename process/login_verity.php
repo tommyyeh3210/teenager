@@ -42,7 +42,7 @@
 		//echo $_SESSION["uid"];
 		//echo $_SESSION["email"];
 		//echo $_SESSION["name"];
-		header("Location: ../starter.php");
+		header("Location: ../publish.php");
 	}else{
 		echo "登入失敗";
 		header("Location: ../Login/index.html");
