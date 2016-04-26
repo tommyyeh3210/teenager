@@ -5,7 +5,13 @@
 	$email = $_POST["email"];
 	$password = $_POST["password"];	
 
-	$sql = "SELECT * FROM member WHERE email=:email AND password=:pwd";
+	$sql = "SELECT `member`.*,`group`.group_name,`ministry`.ministry_name,`role`.role_name 
+			FROM `member`,`group`,`ministry`,`role` 
+			WHERE email=:email 
+			AND password=:pwd 
+			AND `member`.ministry = `ministry`.ministry_id
+			AND `member`.group_for = `group`.group_id 
+			AND `member`.role = `role`.role_id";
 	$sth = $con->prepare($sql);	
 	$sth->bindParam(':email',$email);
 	$sth->bindParam(':pwd',$password);
@@ -21,9 +27,12 @@
 			$_SESSION["sex"] = $row["sex"];
 			$_SESSION["birthday"] = $row["birthday"];
 			$_SESSION["role"] = $row["role"];
+			$_SESSION["role_name"] = $row["role_name"];
 			$_SESSION["mobile"] = $row["mobile"];
 			$_SESSION["group_for"] = $row["group_for"];
+			$_SESSION["group_name"] = $row["group_name"];
 			$_SESSION["ministry"] = $row["ministry"];
+			$_SESSION["ministry_name"] = $row["ministry_name"];
 			$_SESSION["education"] = $row["education"];
 			$_SESSION["address"] = $row["address"];
 			$_SESSION["skill"] = $row["skill"];

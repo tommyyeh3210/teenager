@@ -46,11 +46,11 @@ if (isset($listName) == true && empty($songIdArray) == false) {
 
 		        // use the imported page
 		        $pdf->useTemplate($templateId);
-		        //$pdf->image("../uploads/final.png",15,10,10); //將圖片併到PDF
 		        
-		        $pdf->SetFont('Helvetica'); //Helvetica
+		        $pdf->image("../uploads/yy.png",0,5,80); //將圖片併到PDF
+		        /*$pdf->SetFont('Helvetica'); //Helvetica
 		        $pdf->SetXY(5, 5);
-		        $pdf->Write(8, 'hi');
+		        $pdf->Write(8, 'hi');*/
 		    }
 		}
 

@@ -23,7 +23,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>D</b>AVID</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Nei hu </b>Grace</span>
+          <span class="logo-lg"><b>內湖</b>思恩堂</span>
         </a>
 
         <!-- Header Navbar -->
@@ -141,7 +141,7 @@
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
                       <?php echo $_SESSION["name"]; ?>
-                      <small>老子是總監</small>
+                      <small><?php echo $_SESSION["group_name"]; ?></small>
                     </p>
                   </li>
                   <!-- Menu Body 
@@ -210,19 +210,29 @@
           <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="publish.php"><i class="fa fa-link"></i> <span>公告事項</span></a></li>
+            
+            <li><a href="publish.php"><i class="fa fa-link"></i> <span>公告事項</span></a></li>
+            
+            		
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>詩歌管理</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="songSearch.php">詩歌查詢</a></li>
-                <li><a href="newSong.php">詩歌新增</a></li>
-                <li><a href="practiceSongList.php">詩歌清單</a></li>
+                <li><a href="songSearch.php"><i class="fa fa-link"></i>詩歌查詢</a></li>
+                <li><a href="newSong.php"><i class="fa fa-link"></i>詩歌新增</a></li>
+                <li><a href="practiceSongList.php"><i class="fa fa-link"></i>詩歌清單</a></li>
               </ul>
             </li>
-            <li><a href="#"><i class="fa icon-car"></i> <span>小組回報單</span></a></li>
+            <li class="active"><a href="#"><i class="fa icon-car"></i> <span>小組回報單</span></a></li>
             <li><a href="worshipform.php"><i class="fa fa-link"></i> <span>敬拜表單</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
             
+            <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>系統管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="newpublish.php"><i class="fa fa-link"></i>公告管理</a></li>
+              </ul>
+            </li>
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

@@ -55,8 +55,8 @@
               <div class="box box-primary">
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="dist/img/user4-128x128.jpg" alt="User profile picture">
-                  <h3 class="profile-username text-center"><?php echo $_SESSION["group_for"]; ?></h3>
-                  <p class="text-muted text-center"><?php echo $_SESSION["role"]; ?></p>
+                  <h3 class="profile-username text-center"><?php echo $_SESSION["group_name"]; ?></h3>
+                  <p class="text-muted text-center"><?php echo $_SESSION["role_name"]; ?></p>
 
                   <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
@@ -78,10 +78,10 @@
                       <b>手機</b> <a class="pull-right"><?php echo $_SESSION["mobile"]; ?></a>
                     </li>
                     <li class="list-group-item">
-                      <b>所屬小組</b> <a class="pull-right"><?php echo $_SESSION["group_for"]; ?></a>
+                      <b>所屬小組</b> <a class="pull-right"><?php echo $_SESSION["group_name"]; ?></a>
                     </li>
                     <li class="list-group-item">
-                      <b>所屬事工</b> <a class="pull-right"><?php echo $_SESSION["ministry"]; ?></a>
+                      <b>所屬事工</b> <a class="pull-right"><?php echo $_SESSION["ministry_name"]; ?></a>
                     </li>
                   </ul>
 
@@ -111,11 +111,30 @@
 
                   <strong><i class="fa fa-pencil margin-r-5"></i>專長</strong>
                   <p>
-                    <span class="label label-danger">吃</span>
-                    <span class="label label-success">喝</span>
-                    <span class="label label-info">拉</span>
-                    <span class="label label-warning">撒</span>
-                    <span class="label label-primary">睡</span>
+                    <?php 
+                      //echo $_SESSION["skill"];
+                      $skill_array = explode(",", $_SESSION["skill"]);
+                      for ($i=0; $i < count($skill_array) ; $i++) { 
+                        //echo $skill_array[$i];
+                        switch ($i % 5) {
+                          case '0':
+                            echo "<span class='label label-danger'>".$skill_array[$i]."</span>";
+                            continue;
+                          case '1':
+                            echo "<span class='label label-info'>".$skill_array[$i]."</span>";
+                            continue;
+                          case '2':
+                            echo "<span class='label label-success'>".$skill_array[$i]."</span>";
+                            continue;
+                          case '3':
+                            echo "<span class='label label-warning'>".$skill_array[$i]."</span>";
+                            continue;                          
+                          case '4':
+                            echo "<span class='label label-primary'>".$skill_array[$i]."</span>";
+                            continue;
+                        }
+                      }
+                    ?>
                   </p>
 
                   <hr>

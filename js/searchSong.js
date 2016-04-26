@@ -5,7 +5,7 @@ window.onload = function(){
 	songSearchForm = document.getElementById('songSearchForm');
 }
 
-function song(songID,chName,enName,album,tune,lyrics,note,sheet){
+function song(songID,chName,enName,album,tune,lyrics,note,sheet,page){
 	this.song_id = songID;
 	this.chName = chName;
 	this.enName = enName;
@@ -14,6 +14,7 @@ function song(songID,chName,enName,album,tune,lyrics,note,sheet){
 	this.lyrics = lyrics;
 	this.note = note;
 	this.sheet = sheet;
+	this.page = page;
 }
 
 function refreshSongList () {
@@ -25,7 +26,7 @@ function refreshSongList () {
 	    var result = JSON.parse(json);	    
 	    	for (var i = 0; i < result.length; i++) {
 	    		var str = "";
-	    		songItem[i] = new song(result[i].song_id,result[i].song_chname,result[i].song_enname,result[i].album,result[i].tune,result[i].lyrics,result[i].note,result[i].sheet);
+	    		songItem[i] = new song(result[i].song_id,result[i].song_chname,result[i].song_enname,result[i].album,result[i].tune,result[i].lyrics,result[i].note,result[i].sheet,result[i].page);
 	    		str = "<div class='panel panel-default'>"
 	    			+ 		"<div class='panel-heading' role='tab' id='heading" + i +"' style='padding:0px;'>"
 	    			+ 			"<h4 class='panel-title'>"
@@ -54,6 +55,9 @@ function refreshSongList () {
 				str	+=					"</div>"
 					+					"<div class='col-md-4'>"
 					+						"<b>歌曲編號：</b>" + songItem[i].song_id
+					+					"</div>"
+					+					"<div class='col-md-4'>"
+					+						"<b>頁碼：</b><span class='label label-info'>" + songItem[i].page +"</span>"
 					+					"</div>"
 					+					"<div class='col-md-4'>"
 					+						"<b>備註：</b><br />" + songItem[i].note
