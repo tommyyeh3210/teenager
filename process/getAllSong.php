@@ -18,7 +18,7 @@
 			"lyrics" => urldecode($row["lyrics"]),
 			"note" => urldecode($row["note"]),
 			"sheet" => $sheet,
-			"page" => $row["pages"]
+			"page" => $row["page"]
 			);
 		array_push($arr, $data);
 	}

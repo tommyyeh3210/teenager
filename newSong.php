@@ -126,7 +126,11 @@
 		                    <div class="form-group">
 		                      <label for="modifySongEnName">英文歌名</label>
 		                      <input type="text" class="form-control" id="modifySongEnName" name="modifySongEnName" placeholder="請輸入英文歌名">
-		                    </div>		                    
+		                    </div>
+		                    <div class="form-group">
+		                      <label for="modifyPage">頁碼</label>
+		                      <input type="text" class="form-control" id="modifyPage" name="modifyPage" placeholder="請輸入頁碼">
+		                    </div>	                    
 		                    <div class="form-group">
 		                      <label for="modifyTune">調性</label>
 		                      <input type="text" class="form-control" id="modifyTune" name="modifyTune" placeholder="請輸入調性">
@@ -188,6 +192,10 @@
                           <label for="newAlbumName">專輯</label>
                           <input type="text" class="form-control" id="newAlbumName" name="newAlbumName" placeholder="專輯名稱" readonly=true>
                           <input type="hidden" id="newAlbumID" name="newAlbumID">
+                        </div>
+                        <div class="form-group">
+                          <label for="newPage">頁碼</label>
+                          <input type="text" class="form-control" id="newPage" name="newPage" placeholder="請輸入頁碼">
                         </div>
                         <div class="form-group">
                           <label for="newTune">調性</label>

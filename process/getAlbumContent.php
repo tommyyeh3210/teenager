@@ -31,6 +31,7 @@
 			"ablum" => $row["album"],
 			"tune" => urldecode($row["tune"]),
 			"lyrics" => urldecode($row["lyrics"]),
+			"page" => $row["page"],
 			"integrity"	=> $count
 			);
 		array_push($arr, $data);

@@ -20,6 +20,7 @@ function song(songID,chName,enName,album,tune,lyrics,note,sheet,page){
 function refreshSongList () {
 	var request = new XMLHttpRequest();
 	var songItem = new Array();
+	document.getElementById('allSongList').innerHTML ="";
 	request.onreadystatechange = function(){
 	  if (request.readyState == 4 && request.status == 200) {  //從這裡處理取得的JSON資料
 	    var json = request.responseText;
@@ -93,6 +94,7 @@ function call(){
 	}else{
 		var songItem = new Array();
 		var request = new XMLHttpRequest();
+		document.getElementById('allSongList').innerHTML ="";
 		request.onreadystatechange = function(){
 		  if (request.readyState == 4 && request.status == 200) {  //從這裡處理取得的JSON資料
 		    var json = request.responseText;

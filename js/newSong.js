@@ -38,13 +38,14 @@ window.onload = function ()
 	btnDelete.addEventListener('click', deleteSong ,false);
 	btnCancel.addEventListener('click', cancelModify ,false);
 }
-function songItem(id,chName,enName,album,tune,lyrics){
+function songItem(id,chName,enName,album,tune,lyrics,page){
 	this.song_id = id;
 	this.chName = chName;
 	this.enName = enName;
 	this.album = album;
 	this.tune = tune;
 	this.lyrics = lyrics;	
+	this.page = page;
 }
 
 function refreshAlbumList(){
@@ -122,7 +123,8 @@ function refreshAlbumContent(){
 	    							  result[i].song_enname,
 	    							  result[i].album,
 	    							  result[i].tune,
-	    							  result[i].lyrics)
+	    							  result[i].lyrics,
+	    							  result[i].page)
 	    	var str ="<tr>";
 	    		str +="<td>" + objSong[i].song_id + "</td>";
 	    		str +="<td>" + objSong[i].chName + "</td>";
@@ -331,6 +333,7 @@ function updateSongItem (id) {
 	document.getElementById("modifySongEnName").value = objSong[id].enName;
 	document.getElementById("modifyTune").value = objSong[id].tune;
 	document.getElementById("modifyLyrics").value = objSong[id].lyrics;
+	document.getElementById('modifyPage').value = objSong[id].page;
 
 	var request = new XMLHttpRequest();
 	document.getElementById('exitsFile').innerHTML ="";

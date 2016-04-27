@@ -4,10 +4,10 @@ window.onload = function ()
 	getpraceticeList();
 }
 
-function practiceList(id,name,sonlist) {
+function practiceList(id,name,songlist) {
 	this.p_id = id;
 	this.p_name = name;
-	this.p_songlist = sonlist;
+	this.p_songlist = songlist;
 }
 
 function sendPracticeList () {

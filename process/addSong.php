@@ -7,6 +7,7 @@ $SongEnName = "";
 $AlbumID = "";
 $Tune = "";
 $Lyrics = "";
+$page = "";
 $timeStamp = time();
 
 $SongChName = $_POST["newSongChName"];
@@ -14,17 +15,19 @@ $SongEnName = $_POST["newSongEnName"];
 $AlbumID = $_POST["newAlbumID"];
 $Tune = $_POST["newTune"];
 $Lyrics = $_POST["newLyrics"];
+$page = $_POST["newPage"];
 
 
 try{
 	//新增資料
-	$sql = "INSERT INTO song (`song_chname`,`song_enname`,`album`,`tune`,`lyrics`) VALUES (:SongChName,:SongEnName,:AlbumName,:Tune,:Lyrics);";
+	$sql = "INSERT INTO song (`song_chname`,`song_enname`,`album`,`tune`,`lyrics`,`page`) VALUES (:SongChName,:SongEnName,:AlbumName,:Tune,:Lyrics,:page);";
 	$sth = $con->prepare($sql);	
 	$sth->bindParam(':SongChName',$SongChName);
 	$sth->bindParam(':SongEnName',$SongEnName);
 	$sth->bindParam(':AlbumName',$AlbumID);
 	$sth->bindParam(':Tune',$Tune);
 	$sth->bindParam(':Lyrics',$Lyrics);
+	$sth->bindParam(':page',$page);
 	//$sth->bindParam(':sheet',$sheet);
 	$sth->execute();
 	$ResponMessage = "新增成功";

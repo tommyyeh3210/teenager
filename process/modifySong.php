@@ -6,6 +6,7 @@ $SongChName = "";
 $SongEnName = "";
 $Tune = "";
 $Lyrics = "";
+$page = "";
 $timeStamp = time();
 
 $rID = $_POST["rID"];
@@ -13,17 +14,19 @@ $SongChName = $_POST["modifySongChName"];
 $SongEnName = $_POST["modifySongEnName"];
 $Tune = $_POST["modifyTune"];
 $Lyrics = $_POST["modifyLyrics"];
+$page = $_POST["modifyPage"];
 $ResponMessage = "更新成功";
 
 try{
 	//新增資料
-	$sql = "UPDATE `song` SET song_chname=:SongChName,song_enname=:SongEnName,tune=:Tune,lyrics=:Lyrics WHERE song_id=:rID";
+	$sql = "UPDATE `song` SET song_chname=:SongChName,song_enname=:SongEnName,tune=:Tune,lyrics=:Lyrics,page=:page WHERE song_id=:rID";
 	$sth = $con->prepare($sql);	
 	$sth->bindParam(':SongChName',$SongChName);
 	$sth->bindParam(':SongEnName',$SongEnName);
 	$sth->bindParam(':Tune',$Tune);
 	$sth->bindParam(':Lyrics',$Lyrics);
 	$sth->bindParam(':rID',$rID);
+	$sth->bindParam(':page',$page);
 	//$sth->bindParam(':sheet',$sheet);
 	$sth->execute();
 	
