@@ -21,7 +21,7 @@
         <!-- Logo -->
         <a href="publish.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>D</b>AVID</span>
+          <span class="logo-mini"><b>G</b>race</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>內湖</b>思恩堂</span>
         </a>
@@ -36,109 +36,20 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
-              <li class="dropdown messages-menu">
-                <!-- Menu toggle button 郵件圖標-->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="label label-success">4</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 4 messages</li>
-                  <li>
-                    <!-- inner menu: contains the messages -->
-                    <ul class="menu">
-                      <li><!-- start message -->
-                        <a href="#">
-                          <div class="pull-left">
-                            <!-- User Image -->
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                          </div>
-                          <!-- Message title and timestamp -->
-                          <h4>
-                            Support Team
-                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                          </h4>
-                          <!-- The message -->
-                          <p>Why not buy a new awesome theme?</p>
-                        </a>
-                      </li><!-- end message -->
-                    </ul><!-- /.menu -->
-                  </li>
-                  <li class="footer"><a href="#">See All Messages</a></li>
-                </ul>
-              </li><!-- /.messages-menu -->
-
-              <!-- Notifications Menu 鈴鐺圖標-->
-              <li class="dropdown notifications-menu">
-                <!-- Menu toggle button -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning">10</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 10 notifications</li>
-                  <li>
-                    <!-- Inner Menu: contains the notifications -->
-                    <ul class="menu">
-                      <li><!-- start notification -->
-                        <a href="#">
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                        </a>
-                      </li><!-- end notification -->
-                    </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
-              <!-- Tasks Menu 旗幟圖標-->
-              <li class="dropdown tasks-menu">
-                <!-- Menu Toggle Button -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-flag-o"></i>
-                  <span class="label label-danger">9</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 9 tasks</li>
-                  <li>
-                    <!-- Inner menu: contains the tasks -->
-                    <ul class="menu">
-                      <li><!-- Task item -->
-                        <a href="#">
-                          <!-- Task title and progress text -->
-                          <h3>
-                            Design some buttons
-                            <small class="pull-right">20%</small>
-                          </h3>
-                          <!-- The progress bar -->
-                          <div class="progress xs">
-                            <!-- Change the css width attribute to simulate progress -->
-                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                              <span class="sr-only">20% Complete</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li><!-- end task item -->
-                    </ul>
-                  </li>
-                  <li class="footer">
-                    <a href="#">View all tasks</a>
-                  </li>
-                </ul>
-              </li>
 
               <!-- User Account Menu 使用者帳戶選單-->
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <img src="dist/img/eagle.jpg" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs"><?php echo $_SESSION["name"]; ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="dist/img/eagle.jpg" class="img-circle" alt="User Image">
                     <p>
                       <?php echo $_SESSION["name"]; ?>
                       <small><?php echo $_SESSION["group_name"]; ?></small>
@@ -169,10 +80,7 @@
                   </li>
                 </ul>
               </li> <!-- /.User Account Menu 使用者帳戶選單-->
-              <!-- Control Sidebar Toggle Button -->
-              <li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+              <!-- Control Sidebar Toggle Button -->              
             </ul>
           </div>
         </nav>
@@ -187,10 +95,10 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="dist/img/eagle.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p><?php echo $_SESSION["name"]; ?></p>
+              <p style="font-size: 20px;"><?php echo $_SESSION["name"]; ?></p>
               <!-- Status 狀態暫時不用
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
             </div>
@@ -208,28 +116,29 @@
           <!-- /.search form -->
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header">主選單</li>
             <!-- Optionally, you can add icons to the links -->
             
-            <li><a href="publish.php"><i class="fa fa-link"></i> <span>公告事項</span></a></li>
+            <li><a href="publish.php"><i class="fa fa-info-circle"></i> <span>公告事項</span></a></li>
             
             		
             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>詩歌管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-music"></i> <span>詩歌管理</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="songSearch.php"><i class="fa fa-link"></i>詩歌查詢</a></li>
-                <li><a href="newSong.php"><i class="fa fa-link"></i>詩歌新增</a></li>
-                <li><a href="practiceSongList.php"><i class="fa fa-link"></i>詩歌清單</a></li>
+                <li><a href="songSearch.php"><i class="fa fa-search"></i>詩歌查詢</a></li>
+                <li><a href="newSong.php"><i class="fa fa-plus"></i>詩歌新增</a></li>
+                <li><a href="practiceSongList.php"><i class="fa fa-list"></i>詩歌清單</a></li>
               </ul>
             </li>
+            <!--
             <li class="active"><a href="#"><i class="fa icon-car"></i> <span>小組回報單</span></a></li>
             <li><a href="worshipform.php"><i class="fa fa-link"></i> <span>敬拜表單</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            
+            -->
             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>系統管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-gears"></i> <span>系統管理</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="newpublish.php"><i class="fa fa-link"></i>公告管理</a></li>
+                <li><a href="newpublish.php"><i class="fa fa-edit"></i>公告管理</a></li>
               </ul>
             </li>
 

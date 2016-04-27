@@ -45,9 +45,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<small>Search Song</small>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li><a href="#">Forms</a></li>
-			<li class="active">General Elements</li>
+			<li><a href="#"><i class="fa fa-dashboard"></i>首頁</a></li>
+			<li><a href="#">詩歌管理</a></li>
+			<li class="active">詩歌查詢<li>
 		</ol>
 		</section>
 
