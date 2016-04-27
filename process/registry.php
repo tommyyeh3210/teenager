@@ -29,15 +29,15 @@ function sendMail($name,$email,$randNum){
 	//$mail->SMTPDebug = 1;
 	$mail->IsSMTP(); //設定使用SMTP方式寄信   
 	$mail->SMTPAuth = true; //設定SMTP需要驗證        
-	$mail->Host = "smtp.gmail.com"; //Gamil的SMTP主機        
+	$mail->Host = "box1087.bluehost.com"; //Gamil的SMTP主機        
 	$mail->CharSet = "utf-8"; //設定郵件編碼       
 	$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線   
 	$mail->Port = 465;  //Gamil的SMTP主機的SMTP埠位為465埠。        
 	//$mail->SMTPSecure = "tls"; // Gmail的SMTP主機需要使用TLS連線   
 	//$mail->Port = 587;  //Gamil的SMTP主機的SMTP埠位為587埠。        
 	
-	$mail->Username = 'onetwobaby@gmail.com'; //設定驗證帳號        
-	$mail->Password = "ji3cp3cl3"; //設定驗證密碼        
+	$mail->Username = 'grace@lbrblog.org'; //設定驗證帳號        
+	$mail->Password = "grace0513"; //設定驗證密碼        
 	$mail->From = $mail->Username;
 	$mail->FromName = "website test"; //設定寄件者姓名    
 	$mail->Subject = "內湖思恩堂網站驗證信";
@@ -54,7 +54,7 @@ function sendMail($name,$email,$randNum){
 	{
 	    echo $mail->ErrorInfo;
 	} else {
-		echo "郵件寄送Success";
+		echo "<img src='../dist/img/register.png' style='width:100%;height:auto;'/>";
 	}
 
 	//header("Location: email.php");
