@@ -62,40 +62,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<h3 class="box-title">詩歌查詢</h3>
 						</div>
 						<div class="box-body">
-							
-
-
-
-
-
-
-							<!--詩歌查詢-->
-							<form action="searchSong.php" name="songSearchForm" id="songSearchForm" method="POST" class="sidebar-form">
-								<div class="input-group">
-									<input type="text" name="chQ" id="chQ" class="form-control" placeholder="中文搜尋..." oninput="call();">
-									<span class="input-group-btn">
-										<button type="button" onclick="call()" name="searchChQ" id="searchChQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
-									</span>
-								</div>
-								<div class="input-group">
-									<input type="text" name="enQ" id="enQ" class="form-control" placeholder="英文搜尋..." oninput="call();">
-									<span class="input-group-btn">
-										<button type="button" onclick="call()" name="searchEnQ" id="searchEnQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
-									</span>
-								</div>
-								<div class="input-group">
-									<input type="text" name="tuneQ" id="tuneQ" class="form-control" placeholder="調性搜尋..." oninput="call();">
-									<span class="input-group-btn">
-										<button type="button" onclick="call()" name="searchTuneQ" id="searchTuneQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
-									</span>
-								</div>
-								<div class="input-group">
-									<input type="text" name="lyricsQ" id="lyricsQ" class="form-control" placeholder="歌詞搜尋..." oninput="call();">
-									<span class="input-group-btn">
-										<button type="button" onclick="call()" name="searchLyricsQ" id="searchLyricsQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
-									</span>
-								</div>
-							</form>
+							<div class="col-md-12">
+								<!--詩歌查詢-->
+								<form action="searchSong.php" name="songSearchForm" id="songSearchForm" method="POST" >
+									<div class="input-group">
+										<input type="text" name="chQ" id="chQ" class="form-control" placeholder="中文搜尋..." oninput="call();">
+										<span class="input-group-btn">
+											<button type="button" onclick="call()" name="searchChQ" id="searchChQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+									<div class="input-group">
+										<input type="text" name="enQ" id="enQ" class="form-control" placeholder="英文搜尋..." oninput="call();">
+										<span class="input-group-btn">
+											<button type="button" onclick="call()" name="searchEnQ" id="searchEnQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+									<div class="input-group">
+										<input type="text" name="tuneQ" id="tuneQ" class="form-control" placeholder="調性搜尋..." oninput="call();">
+										<span class="input-group-btn">
+											<button type="button" onclick="call()" name="searchTuneQ" id="searchTuneQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+									<div class="input-group">
+										<input type="text" name="lyricsQ" id="lyricsQ" class="form-control" placeholder="歌詞搜尋..." oninput="call();">
+										<span class="input-group-btn">
+											<button type="button" onclick="call()" name="searchLyricsQ" id="searchLyricsQ" class="btn btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+								</form>
+							</div>
 							<!--End詩歌查詢-->
 							<div class="col-md-12"><!--詩歌列表開始 -->
 								<div class="panel-group" role="tablist" aria-multiselectable="true" id="allSongList">
