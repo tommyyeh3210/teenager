@@ -29,7 +29,7 @@ if (isset($listName) == true && empty($songIdArray) == false) {
 		var_dump($songNameArray);
 		foreach ($songNameArray as $file) {
 			// get the page count
-		    $pageCount = $pdf->setSourceFile("../uploads/".$file);
+		    $pageCount = $pdf->setSourceFile("../uploads/".iconv('utf-8','big5',$file));
 		    // iterate through all pages
 		    for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 		        // import a page
