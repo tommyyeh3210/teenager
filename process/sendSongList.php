@@ -26,7 +26,7 @@ if (isset($listName) == true && empty($songIdArray) == false) {
 
 		/*PDF合併語法*/
 		$pdf = new FPDI();
-
+		var_dump($songNameArray);
 		foreach ($songNameArray as $file) {
 			// get the page count
 		    $pageCount = $pdf->setSourceFile("../uploads/".$file);
