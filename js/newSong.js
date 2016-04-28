@@ -105,7 +105,7 @@ function refreshAlbumContent(){
 	request.onreadystatechange = function(){
 	  if (request.readyState == 4 && request.status == 200) {  //從這裡處理取得的JSON資料
 	    var json = request.responseText;
-	    //console.log(json);
+	    console.log(json);
 	    var result = JSON.parse(json);
 	    console.log(result);
 	    var albumContent = document.getElementById('ablumContent');
@@ -128,7 +128,7 @@ function refreshAlbumContent(){
 	    	var str ="<tr>";
 	    		str +="<td>" + objSong[i].song_id + "</td>";
 	    		str +="<td>" + objSong[i].chName + "</td>";
-	    		str +="<td>" + integrityColor(result[i].integrity *25) + "</td>";
+	    		str +="<td>" + integrityColor(result[i].integrity * 17) + "</td>";
 	    		str +="<td><a href='javascript: updateSongItem("+ i +");'>修改</a></td>";
 	    		str +="</tr>";
 	    	albumContent.innerHTML += str;
@@ -143,15 +143,16 @@ function refreshAlbumContent(){
 }
 function integrityColor(x){   //依照完成度給予標籤顏色
 	var content;
-	switch(x) {
-	    case 25:
-	        content = "<span class='badge bg-red'>25%</span>"
+	//alert(x);
+	switch(true) {
+	    case (x<=34):
+	        content = "<span class='badge bg-red'>"+x+"%</span>"
 	        break;
-	    case 50:
-	        content = "<span class='badge bg-yellow'>50%</span>"
+	    case (x<=51):
+	        content = "<span class='badge bg-yellow'>"+x+"%</span>"
 	        break;
-	    case 75:
-	        content = "<span class='badge bg-light-blue'>75%</span>"
+	    case (x<=85):
+	        content = "<span class='badge bg-light-blue'>"+x+"%</span>"
 	        break;
 	    default:
 	        content = "<span class='badge bg-green'>100%</span>"
@@ -365,6 +366,7 @@ function deleteFile(db_id,fileName){
 				RespondMsg.innerHTML = msg;
 				alert(msg);
 				modifyformSong.style.display = "none";
+				refreshAlbumContent();
 			};
 		};
 		request.open("POST", "process/deleteFile.php", true);
