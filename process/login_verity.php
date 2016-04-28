@@ -5,7 +5,7 @@
 	$email = $_POST["email"];
 	$password = $_POST["password"];
 	$salt = "A7fLg&fg3@";
-	
+	$password = MD5($password.$salt);
 
 	$sql = "SELECT `member`.*,`group`.group_name,`ministry`.ministry_name,`role`.role_name 
 			FROM `member`,`group`,`ministry`,`role` 
@@ -16,7 +16,7 @@
 			AND `member`.role = `role`.role_id";
 	$sth = $con->prepare($sql);	
 	$sth->bindParam(':email',$email);
-	$sth->bindParam(':pwd',md5($password.$salt));
+	$sth->bindParam(':pwd',$password);
 	$sth->execute();
 	$result = $sth ->fetchAll();
 
@@ -46,8 +46,10 @@
 		//echo $_SESSION["name"];
 		header("Location: ../publish.php");
 	}else{
-		echo "登入失敗";
-		header("Location: ../Login/index.html");
+		echo "<script>alert('帳號密碼錯誤')
+			  	location.href = '../Login/index.html'
+			  </script>";
+		//header("Location: ../Login/index.html");
 	}
 
 	/*foreach ($result as $row) {
