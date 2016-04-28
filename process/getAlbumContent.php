@@ -1,9 +1,8 @@
 <?php
 	include ("dbconf.php");
-
 	$songID= $_POST["item"];
-
-	$sql = "SELECT * FROM song WHERE album =:id";
+try{
+	$sql = "SELECT * FROM `song` WHERE album =:id";
 	$sth = $con->prepare($sql);
 	$sth->bindParam(':id',$songID);
 	$sth->execute();
@@ -17,10 +16,20 @@
 		if($row["tune"] != NULL){
 			$count++;
 		}
+		if($row["page"] != NULL){
+			$count++;
+		}
 		if($row["lyrics"] != NULL){
 			$count++;
 		}
-		if($row["note"] != NULL){
+
+		//檢查歌曲是否上傳樂譜
+		$sql = "SELECT `song_sheet`.sheet_name FROM `song_sheet` WHERE song_id = :rid";
+		$sth = $con->prepare($sql);
+		$sth->bindParam(':rid',$row["song_id"]);
+		$sth->execute();
+		$result = $sth ->fetchAll();
+		if ($result){
 			$count++;
 		}
 
@@ -36,9 +45,12 @@
 			);
 		array_push($arr, $data);
 	}
+}catch(Exception $ex){
+	$message = $ex->getMessage();
+	echo $message;
+}
 	
 	$con = null;
-
 	echo urldecode(json_encode($arr));
 
 
