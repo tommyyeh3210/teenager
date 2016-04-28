@@ -3,7 +3,9 @@
 	include ("dbconf.php");
 	
 	$email = $_POST["email"];
-	$password = $_POST["password"];	
+	$password = $_POST["password"];
+	$salt = "A7fLg&fg3@";
+	
 
 	$sql = "SELECT `member`.*,`group`.group_name,`ministry`.ministry_name,`role`.role_name 
 			FROM `member`,`group`,`ministry`,`role` 
@@ -14,7 +16,7 @@
 			AND `member`.role = `role`.role_id";
 	$sth = $con->prepare($sql);	
 	$sth->bindParam(':email',$email);
-	$sth->bindParam(':pwd',$password);
+	$sth->bindParam(':pwd',md5($password.$salt));
 	$sth->execute();
 	$result = $sth ->fetchAll();
 

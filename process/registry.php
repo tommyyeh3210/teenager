@@ -4,6 +4,8 @@ include ("dbconf.php");
 $name = $_POST["r_username"];
 $email = $_POST["r_email"];
 $pwd = $_POST["r_password"];
+$salt = "A7fLg&fg3@";
+$pwd = md5($pwd.$salt);
 
 try{
 	$randNum = getrandnum(); //取得亂數認證碼
