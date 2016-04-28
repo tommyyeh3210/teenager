@@ -47,7 +47,7 @@ if (isset($listName) == true && empty($songIdArray) == false) {
 		        // use the imported page
 		        $pdf->useTemplate($templateId);
 		        
-		        $pdf->image("../uploads/yy.png",0,5,80); //將圖片併到PDF
+		        $pdf->image("../dist/img/yy.png",0,5,80); //將圖片併到PDF
 		        /*$pdf->SetFont('Helvetica'); //Helvetica
 		        $pdf->SetXY(5, 5);
 		        $pdf->Write(8, 'hi');*/
