@@ -1,9 +1,12 @@
 <?php
 include ("dbconf.php");
+session_start();
+
+$userMinistry = $_SESSION["ministry"];
 
 try {
 	$sql = "SELECT `publish`.*,`member`.name FROM `publish`,`member` 
-			WHERE 1 AND `publish_person` = `member`.member_id  
+			WHERE 1 AND `publish_person` = `member`.member_id AND `publish`.ministry = '$userMinistry'
 			ORDER BY publish_date DESC";
 	$sth = $con->prepare($sql);	
 	$sth->execute();

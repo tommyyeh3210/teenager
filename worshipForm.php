@@ -59,39 +59,38 @@
               </div><!-- /. box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
-          <div class="row">
+          <div class="row" id="worshipFormBox" style="display:none;">
             <div class="col-md-12">
               <div class="box box-warning">
                 <div class="box-header with-border">
                   <h3 class="box-title">敬拜表單</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <form role="form">
+                  <form role="form" id="worshipForm" method="get">
                     <!-- text input -->
                     <div class="form-group">
                       <label>日期</label>
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" id="formDate" name="formDate">
                     </div>
                     <div class="form-group">
-                      <label>有沒有讀經？</label>
-                      <select class="form-control">
-                        <option>請選擇..</option>
-                        <option value="1">有啦!</option>
-                        <option value="0">主啊!赦免我..</option>                        
+                      <label for="worshipSong">詩歌敬拜</label>
+                      <select class="form-control" id="worshipSong" name="worshipSong">
+                        <option value="0">No.X</option>
+                        <option value="1">Yes.O</option>
                       </select>
                     </div>
                     <div class="form-group">
-                      <label>有沒有組飯糰？</label>
-                      <select class="form-control">
-                        <option>請選擇..</option>
-                        <option value="1">有啦!</option>
-                        <option value="0">主啊!赦免我..</option>                        
-                      </select>
+                      <label for="bibleScope">讀經範圍</label>
+                      <input type="text" class="form-control" name="bibleScope" id="bibleScope" placeholder="ex.創1-5,出10-15"  maxlength="50" />
+                    </div>
+                    <div class="form-group">
+                      <label for="summary">經文摘要(飯糰)</label>
+                      <textarea class="form-control" rows="5" placeholder="請輸入經文摘要(飯糰)" id="summary" name="summary" maxlength="70" minlength="4"></textarea>
                     </div>
                     <!-- textarea -->
                     <div class="form-group">
                       <label>十架筆記</label>
-                      <textarea class="form-control" rows="5" placeholder="請輸入歌詞"></textarea>
+                      <textarea class="form-control" rows="5" placeholder="請輸入十架筆記" id="cross" name="cross" maxlength="255" minlength="5"></textarea>
                     </div>
                     <div class="box-footer">
                       <button type="reset" class="btn btn-default">清空</button>
@@ -134,9 +133,29 @@
     <!-- fullCalendar 2.2.5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.2/lang/zh-tw.js"></script>
     <!-- Page specific script -->
     <script>
       $(function () {
+
+        var worshipForm = document.getElementById('worshipForm');
+        worshipForm.onsubmit = function(event){
+          var formData = new FormData(worshipForm);
+          formData.append('id',<?php echo $_SESSION["uid"] ?>);
+          var oReq = new XMLHttpRequest();
+          //oReq.upload.addEventListener("progress", uploadProgress, false);
+          oReq.open("POST", "process/addEvents.php", true);
+          oReq.onload = function(oEvent) {
+          if (oReq.status == 200) {
+              console.log(oReq.responseText);              
+            } else {
+              console.log("Error " + oReq.status + " occurred when trying to upload your file.<br \/>");
+            }
+          };
+          oReq.send(formData);
+        }
+
+
 
         /* initialize the external events
          -----------------------------------------------------------------*/
@@ -171,132 +190,63 @@
                 m = date.getMonth(),
                 y = date.getFullYear();                
         $('#calendar').fullCalendar({
+          lang: 'zh-tw',
           header: {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
+          },          
+          eventSources: 'process/getAllEvents.php',
+          events: [{
+              id:0,
+              title: 'DefaultEvent',
+              start: '1970-01-01',
+              worshipSong: 1,
+              bibleScope: "ALL",
+              summary: "Rice is Good",
+              crossText:"Cross save me",
+              allday:true,
+              backgroundColor: "#FFFFFF", //red
+              borderColor: "#FFFFFF" //red
+            }],
+          selectable: true,          
+          dayClick: function(date, jsEvent, view) {
+              var isEventsExits = false;
+              var events = $('#calendar').fullCalendar('clientEvents');
+              for (var i = 0; i < events.length; i++) {
+                //console.log(date.format() +"------"+ events[i].start.format("YYYY-MM-DD")+"-----"+ events[i].title);
+                if(date.format() == events[i].start.format("YYYY-MM-DD")){
+                    isEventsExits = true;
+                    $("#formDate").val(events[i].start.format("YYYY-MM-DD"));
+                    $("#worshipSong")[0].selectedIndex = events[i].worshipSong;
+                    $("#bibleScope").val(events[i].bibleScope);
+                    $("#summary").val(events[i].summary);
+                    $("#cross").val(events[i].crossText);
+                    $("#worshipFormBox").css("display","block");
+                    //console.log(events[i].title);
+                    break;
+                }else{
+                  console.log("null");
+                    $("#worshipForm")[0].reset();
+                    $("#formDate").val(date.format());
+                    $("#worshipFormBox").css("display","block");
+                }
+              }
           },
-          buttonText: {
-            today: 'today',
-            month: 'month',
-            week: 'week',
-            day: 'day'
+          eventClick: function (calEvent, jsEvent, view) {
+              $("#worshipForm")[0].reset();
+              $("#formDate").val(calEvent.start.format("YYYY-MM-DD"));
+              $("#worshipSong")[0].selectedIndex = calEvent.worshipSong;
+              $("#bibleScope").val(calEvent.bibleScope);
+              $("#summary").val(calEvent.summary);
+              $("#cross").val(calEvent.crossText);
+              $("#worshipFormBox").css("display","block");
           },
-          //Random default events 在此增加事件
-          events: [
-            {
-              title: 'All Day Event',
-              start: new Date(y, m, 1),
-              backgroundColor: "#f56954", //red
-              borderColor: "#f56954" //red
-            },
-            {
-              title: 'Long Event',
-              start: new Date(y, m, d - 5),
-              end: new Date(y, m, d - 2),
-              backgroundColor: "#f39c12", //yellow
-              borderColor: "#f39c12" //yellow
-            },
-            {
-              title: 'Meeting',
-              start: new Date(y, m, d, 10, 30),
-              allDay: false,
-              backgroundColor: "#0073b7", //Blue
-              borderColor: "#0073b7" //Blue
-            },
-            {
-              title: 'Lunch',
-              start: new Date(y, m, d, 12, 0),
-              end: new Date(y, m, d, 14, 0),
-              allDay: false,
-              backgroundColor: "#00c0ef", //Info (aqua)
-              borderColor: "#00c0ef" //Info (aqua)
-            },
-            {
-              title: 'Birthday Party',
-              start: new Date(y, m, d + 1, 19, 0),
-              end: new Date(y, m, d + 1, 22, 30),
-              allDay: false,
-              backgroundColor: "#00a65a", //Success (green)
-              borderColor: "#00a65a" //Success (green)
-            },
-            {
-              title: 'Click for Google',
-              start: new Date(y, m, 28),
-              end: new Date(y, m, 30),
-              url: 'http://google.com/',
-              backgroundColor: "#3c8dbc", //Primary (light-blue)
-              borderColor: "#3c8dbc" //Primary (light-blue)
-            },
-            {
-              title: '大家好',
-              start: new Date(2015, 11, 28),
-              end: new Date(2015, 11, 29),
-              url: 'http://google.com/',
-              backgroundColor: "#3c8dbc", //Primary (light-blue)
-              borderColor: "#3c8dbc" //Primary (light-blue)
-            }
-          ],
           editable: true,
-          droppable: true, // this allows things to be dropped onto the calendar !!!
-          drop: function (date, allDay) { // this function is called when something is dropped
+          //droppable: false, // this allows things to be dropped onto the calendar !!!
 
-            // retrieve the dropped element's stored Event Object
-            var originalEventObject = $(this).data('eventObject');
-
-            // we need to copy it, so that multiple events don't have a reference to the same object
-            var copiedEventObject = $.extend({}, originalEventObject);
-
-            // assign it the date that was reported
-            copiedEventObject.start = date;
-            copiedEventObject.allDay = allDay;
-            copiedEventObject.backgroundColor = $(this).css("background-color");
-            copiedEventObject.borderColor = $(this).css("border-color");
-
-            // render the event on the calendar
-            // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-            $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-            // is the "remove after drop" checkbox checked?
-            if ($('#drop-remove').is(':checked')) {
-              // if so, remove the element from the "Draggable Events" list
-              $(this).remove();
-            }
-
-          }
         });
 
-        /* ADDING EVENTS */
-        var currColor = "#3c8dbc"; //Red by default
-        //Color chooser button
-        var colorChooser = $("#color-chooser-btn");
-        $("#color-chooser > li > a").click(function (e) {
-          e.preventDefault();
-          //Save color
-          currColor = $(this).css("color");
-          //Add color effect to button
-          $('#add-new-event').css({"background-color": currColor, "border-color": currColor});
-        });
-        $("#add-new-event").click(function (e) {
-          e.preventDefault();
-          //Get value and make sure it is not null
-          var val = $("#new-event").val();
-          if (val.length == 0) {
-            return;
-          }
-
-          //Create events
-          var event = $("<div />");
-          event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("external-event");
-          event.html(val);
-          $('#external-events').prepend(event);
-
-          //Add draggable funtionality
-          ini_events(event);
-
-          //Remove event from text input
-          $("#new-event").val("");
-        });
       });
     </script>
   </body>

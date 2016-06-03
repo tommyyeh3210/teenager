@@ -53,14 +53,15 @@ try{
 	foreach ($result as $row) {
 		$sheet = getSheetArray($row["song_id"]);
 		$data = array(
-			"song_id" => $row["song_id"],
+			"song_id" => urlencode($row["song_id"]),
 			"song_enname" => urlencode($row["song_enname"]),
 			"song_chname" => urlencode($row["song_chname"]),
-			"album" => $row["album_name"],
+			"album" => urlencode($row["album_name"]),
 			"tune" => urlencode($row["tune"]),
 			"lyrics" => $row["lyrics"],      //不用urlencode 就可以運作 無解中
 			"note" => urlencode($row["note"]),
-			"sheet" => $sheet
+			"sheet" => $sheet,
+			"page" => urlencode($row["page"])
 			);
 		array_push($arr, $data);
 	}

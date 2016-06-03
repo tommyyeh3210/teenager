@@ -121,27 +121,51 @@
             
             <li><a href="publish.php"><i class="fa fa-info-circle"></i> <span>公告事項</span></a></li>
             
-            		
+            <?php
+                if ($_SESSION["ministry"] == 1)
+                {
+            ?>		
             <li class="treeview">
               <a href="#"><i class="fa fa-music"></i> <span>詩歌管理</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="songSearch.php"><i class="fa fa-search"></i>詩歌查詢</a></li>
-                <li><a href="newSong.php"><i class="fa fa-plus"></i>詩歌新增</a></li>
-                <li><a href="practiceSongList.php"><i class="fa fa-list"></i>詩歌清單</a></li>
-              </ul>
+              
+                  <ul class="treeview-menu">
+                    <li><a href="songSearch.php"><i class="fa fa-search"></i>詩歌查詢</a></li>
+                    <li><a href="newSong.php"><i class="fa fa-plus"></i>詩歌新增</a></li>
+                    <li><a href="practiceSongList.php"><i class="fa fa-list"></i>詩歌清單</a></li>
+                  </ul>              
             </li>
+            <?php  
+                }
+            ?>
             <!--
-            <li class="active"><a href="#"><i class="fa icon-car"></i> <span>小組回報單</span></a></li>
-            <li><a href="worshipform.php"><i class="fa fa-link"></i> <span>敬拜表單</span></a></li>
+            <li class="active"><a href="#"><i class="fa icon-car"></i> <span>小組回報單</span></a></li>            
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
             -->
+            <li><a href="worshipForm.php"><i class="fa fa-hand-peace-o"></i> <span>敬拜表單</span></a></li>
+            <?php
+              if ($_SESSION["role"] == 3 || $_SESSION["role"] == 7)
+              {
+            ?>
             <li class="treeview">
               <a href="#"><i class="fa fa-gears"></i> <span>系統管理</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
+              <ul class="treeview-menu">                
                 <li><a href="newpublish.php"><i class="fa fa-edit"></i>公告管理</a></li>
+                
+                <?php
+                  if ($_SESSION["role"] == 7)
+                  {
+                ?>
+                    <li><a href="groupManage.php"><i class="fa fa-tree"></i>小組管理</a></li>
+                    <li><a href="authority.php"><i class="fa fa-unlock"></i>權限管理</a></li>
+                    <li><a href="usermanage.php"><i class="fa fa-users"></i>使用者管理</a></li> 
+                <?php  
+                  }
+                ?>                
               </ul>
             </li>
-
+            <?php  
+              }
+            ?>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

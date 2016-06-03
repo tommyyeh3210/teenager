@@ -8,23 +8,24 @@
 	$arr = array();
 	$sheet = array();
 	foreach ($result as $row) {	
-		$sheet = getSheetArray($row["song_id"]);	
+		$sheet = getSheetArray($row["song_id"]);
+
 		$data = array(
-			"song_id" => $row["song_id"],
+			"song_id" => urlencode($row["song_id"]),
 			"song_chname" => urlencode($row["song_chname"]),
-			"song_enname" => urldecode($row["song_enname"]),
-			"album" => $row["album_name"],
-			"tune" => urldecode($row["tune"]),
-			"lyrics" => urldecode($row["lyrics"]),
-			"note" => urldecode($row["note"]),
+			"song_enname" => urlencode($row["song_enname"]),
+			"album" => urlencode($row["album_name"]),
+			"tune" => urlencode($row["tune"]),
+			"lyrics" => $row["lyrics"],   //歌詞裡可能有逗號造成
+			"note" => urlencode($row["note"]),
 			"sheet" => $sheet,
-			"page" => $row["page"]
+			"page" => urlencode($row["page"])
 			);
 		array_push($arr, $data);
 	}
 	
 	$con = null;
-
+		
 	echo urldecode(json_encode($arr));
 
 function getSheetArray($id){
